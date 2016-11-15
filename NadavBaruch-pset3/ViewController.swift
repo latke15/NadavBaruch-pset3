@@ -9,17 +9,42 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    @IBOutlet weak var searchLabel: UILabel!
+    @IBOutlet weak var movieInput: UITextField!
+    @IBOutlet weak var movieButton: UIButton!
+    @IBOutlet weak var tableButton: UIButton!
+    let myJson = String()
+    var newUrlInput = String()
 
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-    }
-
-    override func didReceiveMemoryWarning() {
+        
+    
+    func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    }
+    @IBAction func movieButton(_ sender: Any) {
+        let urlInput = movieInput.text
+        let newUrlInput = urlInput?.replacingOccurrences(of: " ", with: "+")
+        
+        let url = URL(string: "https://www.omdbapi.com/?t=" + newUrlInput! + "&y=&plot=short&r=json")
+        let task = URLSession.shared.dataTask(with: url!) { data, response, error in
+            guard error == nil else {
+                print("error!")
+                return
+            }
+            guard let data = data else {
+                print("Data is empty")
+                return
+            }
+            let myJson = try! JSONSerialization.jsonObject(with: data, options: [])
+            print(myJson)
+        }
+        task.resume()
+    }
 }
-
