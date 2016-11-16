@@ -47,4 +47,9 @@ class ViewController: UIViewController {
         }
         task.resume()
     }
-}
+    
+    // segue contents to the rawtext variable in the the next view
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination: SecondViewController = (segue.destination as? SecondViewController){
+            destination.movieData = myJson}
+    }}

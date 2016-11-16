@@ -9,10 +9,13 @@
 import UIKit
 
 class SecondViewController: UIViewController {
+    @IBOutlet weak var movieInfo: UILabel!
+    var movieData = String()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        movieInfo.text = movieData
         // Do any additional setup after loading the view.
     }
 
