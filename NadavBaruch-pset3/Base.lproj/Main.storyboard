@@ -22,8 +22,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="8nk-EP-dSQ">
-                                <rect key="frame" x="164" y="72" width="78" height="161"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="8nk-EP-dSQ">
+                                <rect key="frame" x="148" y="72" width="78" height="161"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="QLm-bq-F23">
                                         <rect key="frame" x="0.0" y="0.0" width="78" height="80.5"/>
@@ -52,12 +52,9 @@
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KIc-Bw-PJr">
                                         <rect key="frame" x="0.0" y="80.5" width="78" height="80.5"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="46" id="AIR-NK-lDe"/>
-                                        </constraints>
                                         <state key="normal" title="Button"/>
                                         <connections>
-                                            <segue destination="omb-Ur-3Bw" kind="show" id="7VY-fR-v6O"/>
+                                            <segue destination="omb-Ur-3Bw" kind="show" id="4Ln-4T-crL"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -94,10 +91,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xk6-F4-KDT">
-                                <rect key="frame" x="59" y="239" width="256" height="188"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xk6-F4-KDT">
+                                <rect key="frame" x="59" y="72" width="256" height="188"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -112,10 +109,10 @@
             </objects>
             <point key="canvasLocation" x="1704.8" y="138.98050974512745"/>
         </scene>
-        <!--View Controller-->
+        <!--Table View Controller-->
         <scene sceneID="5en-T7-iDz">
             <objects>
-                <viewController id="omb-Ur-3Bw" sceneMemberID="viewController">
+                <viewController id="omb-Ur-3Bw" customClass="TableViewController" customModule="NadavBaruch_pset3" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tSC-3n-4XS"/>
                         <viewControllerLayoutGuide type="bottom" id="jWv-Ap-Mgp"/>
@@ -128,7 +125,7 @@
                                 <rect key="frame" x="0.0" y="72" width="375" height="595"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="oTq-Bf-Yxh" customClass="MovieCellTableViewCell" customModule="NadavBaruch_pset3" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="oTq-Bf-Yxh" customClass="MovieCellTableViewCell" customModule="NadavBaruch_pset3" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oTq-Bf-Yxh" id="6C6-I8-6ZK">
@@ -164,8 +161,17 @@
                                                 <constraint firstItem="Afu-ZR-FhZ" firstAttribute="leading" secondItem="oWm-WO-UCY" secondAttribute="trailing" constant="7.5" id="mmP-7H-jY6"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="image1" destination="oWm-WO-UCY" id="2fq-6R-Npm"/>
+                                            <outlet property="label1" destination="OfM-BS-rUt" id="zC7-Mi-63s"/>
+                                            <outlet property="label2" destination="Afu-ZR-FhZ" id="TPX-WE-GGY"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="omb-Ur-3Bw" id="P5M-Dj-3M4"/>
+                                    <outlet property="delegate" destination="omb-Ur-3Bw" id="zTZ-Yy-JLh"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -176,10 +182,13 @@
                             <constraint firstItem="ZPR-cB-plS" firstAttribute="leading" secondItem="rZX-zk-iql" secondAttribute="leading" id="lw3-Km-0vL"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="movieTable" destination="ZPR-cB-plS" id="YzO-3K-T6M"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rpw-yw-uAm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1076" y="906"/>
+            <point key="canvasLocation" x="1076" y="851"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Dz4-ud-ouG">

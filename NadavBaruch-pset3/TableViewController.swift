@@ -1,23 +1,19 @@
 //
-//  SecondViewController.swift
+//  TableViewController.swift
 //  NadavBaruch-pset3
 //
-//  Created by Nadav Baruch on 14-11-16.
+//  Created by Nadav Baruch on 16-11-16.
 //  Copyright © 2016 Nadav Baruch. All rights reserved.
 //
 
 import UIKit
 
-class SecondViewController: UIViewController {
-    @IBOutlet weak var movieInfo: UILabel!
-    var movieData = String()
-    var result:movies?
-    
+class TableViewController: UIViewController {
 
+    @IBOutlet weak var movieTable: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        movieInfo.text = result?.id
-        
+
         // Do any additional setup after loading the view.
     }
 

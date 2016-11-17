@@ -9,6 +9,9 @@
 import UIKit
 
 class MovieCellTableViewCell: UITableViewCell {
+    @IBOutlet weak var label1: UILabel!
+    @IBOutlet weak var label2: UILabel!
+    @IBOutlet weak var image1: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
