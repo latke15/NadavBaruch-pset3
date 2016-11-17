@@ -22,7 +22,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
     
     func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -39,6 +38,9 @@ class ViewController: UIViewController {
     }
     
     @IBAction func movieButton(_ sender: Any) {
+        if movieInput.text == "" {
+            showAlertView(title: "Attention!", withDescription: "You forgot your input!", buttonText: "Understood!")
+        }
         let urlInput = movieInput.text
         let newUrlInput = urlInput?.replacingOccurrences(of: " ", with: "+")
     
@@ -46,10 +48,12 @@ class ViewController: UIViewController {
         let url = URL(string: "https://www.omdbapi.com/?t=" + newUrlInput! + "&y=&plot=short&r=json")
         let task = URLSession.shared.dataTask(with: url!) { data, response, error in
             guard error == nil else {
+                self.showAlertView(title:"Attention!", withDescription:"Error occured!", buttonText:"Understood!")
                 print("error!")
                 return
             }
             guard let data = data else {
+                self.showAlertView(title:"Attention!", withDescription:"No data could be found!", buttonText:"Understood!")
                 print("Data is empty")
                 return
             }
@@ -70,7 +74,7 @@ class ViewController: UIViewController {
             print(myJson!["Actors"] as Any)
             }
         task.resume()
-    }
+        }
     
     // segue contents to the rawtext variable in the the next view
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
