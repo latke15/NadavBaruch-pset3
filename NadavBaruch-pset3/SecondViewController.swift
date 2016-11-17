@@ -10,14 +10,13 @@ import UIKit
 
 class SecondViewController: UIViewController {
     @IBOutlet weak var movieInfo: UILabel!
-    var movieData = String()
+    var movieData: [String] = []
     var result:movies?
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        movieInfo.text = result?.id
-        
+        movieInfo.text = movieData["title"] as! String
         // Do any additional setup after loading the view.
     }
 

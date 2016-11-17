@@ -11,6 +11,9 @@ import UIKit
 class ViewController: UIViewController {
     var results = [movies]()
     var result:movies?
+    var titles: [String] = []
+    var data = [String: String]()
+    var showRating = [String: String]()
     @IBOutlet weak var searchLabel: UILabel!
     @IBOutlet weak var movieInput: UITextField!
     @IBOutlet weak var movieButton: UIButton!
@@ -30,7 +33,6 @@ class ViewController: UIViewController {
     }
     
     func showAlertView(title: String, withDescription description: String, buttonText text: String) {
-        
         let alertController = UIAlertController(title: title, message: description, preferredStyle: .alert)
         let alertAction = UIAlertAction(title: text, style: .default, handler: nil)
         alertController.addAction(alertAction)
@@ -70,16 +72,19 @@ class ViewController: UIViewController {
             
             
             let myJson = try! JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
-            print(myJson!)
-            print(myJson!["Actors"] as Any)
+            self.data = myJson as! [String : String]
+            self.titles.append(self.data["Title"]!)
+            //self.showRating.append[self.data["Title"]!] = self.data["imdbRating"]
+            print(self.titles)
             }
         task.resume()
+        self.loadView()
         }
     
     // segue contents to the rawtext variable in the the next view
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination: SecondViewController = (segue.destination as? SecondViewController){
-            destination.movieData = myJson
+            destination.movieData = self.titles
             //let destination0: TableViewController = (segue.destination as? TableViewController)!
                 //destination0.data = myJson
         }
