@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Home-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="NadavBaruch_pset3" customModuleProvider="target" sceneMemberID="viewController">
@@ -22,66 +22,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="8nk-EP-dSQ">
-                                <rect key="frame" x="148" y="72" width="78" height="80.5"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="QLm-bq-F23">
-                                        <rect key="frame" x="0.0" y="0.0" width="78" height="80.5"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eu9-bI-EHA">
-                                                <rect key="frame" x="18" y="0.0" width="42" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BDF-He-GDy">
-                                                <rect key="frame" x="26.5" y="20.5" width="25" height="30"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j8X-Ld-YR0">
-                                                <rect key="frame" x="16" y="50.5" width="46" height="30"/>
-                                                <state key="normal" title="Button"/>
-                                                <connections>
-                                                    <action selector="movieButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zdH-kD-Ghc"/>
-                                                    <segue destination="m32-NX-11r" kind="show" id="kHU-mK-fvv"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                                <variation key="heightClass=compact" axis="vertical"/>
-                            </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t15-xp-CTP">
-                                <rect key="frame" x="164" y="172" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BDF-He-GDy">
+                                <rect key="frame" x="16" y="245" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j8X-Ld-YR0">
+                                <rect key="frame" x="139" y="318" width="96" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Search!"/>
                                 <connections>
-                                    <segue destination="omb-Ur-3Bw" kind="show" id="F3C-AQ-7f9"/>
+                                    <action selector="movieButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zdH-kD-Ghc"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JnQ-qf-Xmb">
+                                <rect key="frame" x="164" y="356" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Table"/>
+                                <connections>
+                                    <segue destination="omb-Ur-3Bw" kind="show" id="Yg3-IM-qoW"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Welcome to Watchlist! Here you can search for a movie and then add it to your own watchlist, enjoy!" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="8Uo-9p-vGN">
+                                <rect key="frame" x="16" y="72" width="343" height="154"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="8nk-EP-dSQ" secondAttribute="trailing" constant="149" id="9Zk-fH-4Zi"/>
-                            <constraint firstItem="8nk-EP-dSQ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="XKX-Ca-Ptf"/>
-                            <constraint firstItem="t15-xp-CTP" firstAttribute="top" secondItem="8nk-EP-dSQ" secondAttribute="bottom" constant="19" id="eoz-Ox-ljY"/>
-                            <constraint firstItem="t15-xp-CTP" firstAttribute="centerX" secondItem="8nk-EP-dSQ" secondAttribute="centerX" id="iAZ-DH-LoV"/>
-                            <constraint firstItem="8nk-EP-dSQ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="148" id="mBt-gW-8gh"/>
-                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="CmD-07-1Jg"/>
+                    <navigationItem key="navigationItem" title="Home" id="CmD-07-1Jg"/>
                     <connections>
+                        <outlet property="introText" destination="8Uo-9p-vGN" id="3f9-7f-AlK"/>
                         <outlet property="movieInput" destination="BDF-He-GDy" id="5cU-hT-sJH"/>
-                        <outlet property="searchLabel" destination="eu9-bI-EHA" id="Rxw-Mx-ykt"/>
-                        <outlet property="tableButton" destination="t15-xp-CTP" id="QpP-Sk-7vD"/>
+                        <segue destination="m32-NX-11r" kind="push" identifier="secondVCID" id="DjM-hj-AKc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1076" y="138.98050974512745"/>
         </scene>
-        <!--Second View Controller-->
+        <!--Movie-->
         <scene sceneID="mbg-1K-Hmt">
             <objects>
                 <viewController id="m32-NX-11r" customClass="SecondViewController" customModule="NadavBaruch_pset3" customModuleProvider="target" sceneMemberID="viewController">
@@ -93,23 +78,73 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xk6-F4-KDT">
-                                <rect key="frame" x="59" y="72" width="256" height="188"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Harry Potter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F39-Ne-zOg">
+                                <rect key="frame" x="16" y="270" width="343" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b4v-ew-1ZY">
+                                <rect key="frame" x="16" y="72" width="200" height="190"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GuC-5N-IlS">
+                                <rect key="frame" x="16" y="309" width="65" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="imdbRating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YIu-aX-J7n">
+                                <rect key="frame" x="16" y="337" width="87.5" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aIU-lo-v1N">
+                                <rect key="frame" x="16" y="365" width="343" height="67"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="isO-1f-vHs">
+                                <rect key="frame" x="111" y="616" width="153" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add movie to your list!"/>
+                                <connections>
+                                    <action selector="addMovie:" destination="m32-NX-11r" eventType="touchUpInside" id="9hm-vi-WGo"/>
+                                    <segue destination="omb-Ur-3Bw" kind="show" id="whe-bR-hQU"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oAG-qW-8un">
+                                <rect key="frame" x="16" y="440" width="343" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Movie" id="Els-b4-4ah"/>
                     <connections>
-                        <outlet property="movieInfo" destination="xk6-F4-KDT" id="Y16-hA-7NL"/>
+                        <outlet property="addMovie" destination="isO-1f-vHs" id="Cfv-B9-Jpo"/>
+                        <outlet property="imdbRating" destination="YIu-aX-J7n" id="AZj-0m-RvM"/>
+                        <outlet property="movieGenre" destination="aIU-lo-v1N" id="N3l-TC-h2L"/>
+                        <outlet property="movieImageView" destination="b4v-ew-1ZY" id="gMg-uJ-qZ0"/>
+                        <outlet property="moviePlot" destination="oAG-qW-8un" id="1wO-YN-2GH"/>
+                        <outlet property="movieTitle" destination="F39-Ne-zOg" id="wh7-xv-Bf6"/>
+                        <outlet property="movieYear" destination="GuC-5N-IlS" id="peg-FO-OmI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AJh-gw-fZq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1704.8" y="138.98050974512745"/>
+            <point key="canvasLocation" x="2040.8" y="138.98050974512745"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="5en-T7-iDz">
@@ -131,7 +166,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oTq-Bf-Yxh" id="6C6-I8-6ZK">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oWm-WO-UCY">
@@ -164,9 +199,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="image1" destination="oWm-WO-UCY" id="2fq-6R-Npm"/>
-                                            <outlet property="label1" destination="OfM-BS-rUt" id="zC7-Mi-63s"/>
-                                            <outlet property="label2" destination="Afu-ZR-FhZ" id="TPX-WE-GGY"/>
+                                            <outlet property="imdbRating" destination="Afu-ZR-FhZ" id="Knf-77-Hze"/>
+                                            <outlet property="moviePoster" destination="oWm-WO-UCY" id="Zfo-BO-mmE"/>
+                                            <outlet property="movieTitle" destination="OfM-BS-rUt" id="YXK-Gm-SSe"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -184,6 +219,7 @@
                             <constraint firstItem="ZPR-cB-plS" firstAttribute="leading" secondItem="rZX-zk-iql" secondAttribute="leading" id="lw3-Km-0vL"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="2e6-Zh-e9n"/>
                     <connections>
                         <outlet property="movieTable" destination="ZPR-cB-plS" id="YzO-3K-T6M"/>
                     </connections>
@@ -211,4 +247,7 @@
             <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Yg3-IM-qoW"/>
+    </inferredMetricsTieBreakers>
 </document>

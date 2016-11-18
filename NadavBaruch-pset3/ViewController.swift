@@ -9,27 +9,19 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var results = [movies]()
+    
+    @IBOutlet weak var introText: UITextView!
     var result:movies?
-    var titles: [String] = []
-    var data = [String: String]()
-    var showRating = [String: String]()
-    @IBOutlet weak var searchLabel: UILabel!
+    
     @IBOutlet weak var movieInput: UITextField!
-    @IBOutlet weak var movieButton: UIButton!
-    @IBOutlet weak var tableButton: UIButton!
+    
     let myJson = String()
     var newUrlInput = String()
 
-   
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-    
-    func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    introText.isEditable = false
     }
     
     func showAlertView(title: String, withDescription description: String, buttonText text: String) {
@@ -43,9 +35,9 @@ class ViewController: UIViewController {
         if movieInput.text == "" {
             showAlertView(title: "Attention!", withDescription: "You forgot your input!", buttonText: "Understood!")
         }
+        
         let urlInput = movieInput.text
         let newUrlInput = urlInput?.replacingOccurrences(of: " ", with: "+")
-    
         
         let url = URL(string: "https://www.omdbapi.com/?t=" + newUrlInput! + "&y=&plot=short&r=json")
         let task = URLSession.shared.dataTask(with: url!) { data, response, error in
@@ -60,7 +52,6 @@ class ViewController: UIViewController {
                 return
             }
             
-            
             // Get status code
             let httpResponse = response as! HTTPURLResponse
             if httpResponse.statusCode == 400{
@@ -70,22 +61,37 @@ class ViewController: UIViewController {
                 self.showAlertView(title:"Attention!", withDescription:"Internal server error, please contact the administrator.", buttonText:"Understood!")
             }
             
-            
-            let myJson = try! JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
-            self.data = myJson as! [String : String]
-            self.titles.append(self.data["Title"]!)
-            //self.showRating.append[self.data["Title"]!] = self.data["imdbRating"]
-            print(self.titles)
+            if httpResponse.statusCode == 200{
+                print("Succeed to maintain data!")
             }
-        task.resume()
-        self.loadView()
+
+            
+            let dict = try! JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+            
+            let movie = parse(dict: dict!) as? movies
+            
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "secondVCID", sender: movie!)
+            }
+            
         }
+        task.resume()
+    }
     
     // segue contents to the rawtext variable in the the next view
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination: SecondViewController = (segue.destination as? SecondViewController){
-            destination.movieData = self.titles
-            //let destination0: TableViewController = (segue.destination as? TableViewController)!
-                //destination0.data = myJson
+        
+        // check if we go to 2nd VC
+        if segue.identifier == "secondVCID" {
+            if let destination = segue.destination as? SecondViewController {
+                destination.result = sender as? movies
+            }
         }
+        
+        else if segue.identifier == "ThirdVCID" {
+            if let destination = segue.destination as? TableViewController {
+                destination.result = sender as? movies
+            }
+        }
+        
     }}

@@ -9,14 +9,14 @@
 import UIKit
 
 class MovieCellTableViewCell: UITableViewCell {
-    @IBOutlet weak var label1: UILabel!
-    @IBOutlet weak var label2: UILabel!
-    @IBOutlet weak var image1: UIImageView!
+    var result: movies?
+    @IBOutlet weak var movieTitle: UILabel!
+    @IBOutlet weak var imdbRating: UILabel!
+    @IBOutlet weak var moviePoster: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        label1.text = "bla"
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -24,5 +24,6 @@ class MovieCellTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
 
 }
