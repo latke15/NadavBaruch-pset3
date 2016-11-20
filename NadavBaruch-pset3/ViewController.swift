@@ -12,7 +12,6 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var introText: UITextView!
     var result:movies?
-    
     @IBOutlet weak var movieInput: UITextField!
     
     let myJson = String()
@@ -20,10 +19,9 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    introText.isEditable = false
+        introText.isEditable = false
     }
-    
+    // Show an alert
     func showAlertView(title: String, withDescription description: String, buttonText text: String) {
         let alertController = UIAlertController(title: title, message: description, preferredStyle: .alert)
         let alertAction = UIAlertAction(title: text, style: .default, handler: nil)
@@ -76,6 +74,7 @@ class ViewController: UIViewController {
             
         }
         task.resume()
+        self.loadView()
     }
     
     // segue contents to the rawtext variable in the the next view

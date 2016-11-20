@@ -42,7 +42,7 @@ func parse(json data: Data) -> [String: Any]? {
 
 func parse(dict dictionary: [String: Any]) -> movies! {
     
-    var result = movies()
+    let result = movies()
     
     if let title = dictionary["Title"] {
         result.title = title as! String

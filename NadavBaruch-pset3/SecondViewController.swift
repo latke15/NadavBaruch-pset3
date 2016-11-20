@@ -19,15 +19,17 @@ class SecondViewController: UIViewController {
     @IBOutlet weak var addMovie: UIButton!
     
     var result:movies!
+    var titles = [String]()
+    var poster: [String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // source: http://stackoverflow.com/questions/24231680/loading-downloading-image-from-url-on-swift
         if let checkedUrl = URL(string: result.poster) {
             movieImageView.contentMode = .scaleAspectFit
             downloadImage(url: checkedUrl)
         }
-        // Do any additional setup after loading the view.\
         movieTitle.text = result.title
         moviePlot.text = result.plot
         movieYear.text = result.year
@@ -37,24 +39,19 @@ class SecondViewController: UIViewController {
         movieGenre.isEditable = false
      
     }
-    
-    
     @IBAction func addMovie(_ sender: Any) {
         let defaults = UserDefaults.standard
-        defaults.set(movieTitle.text, forKey: "Title")
-        var titles = [String]()
-        titles.append(movieTitle.text!)
-        print(titles)
-        defaults.set(titles, forKey: "Movies")
+        self.titles.insert(movieTitle.text!, at: 0)
+        defaults.set(self.titles, forKey: "titles")
     }
-        
+// source: http://stackoverflow.com/questions/24231680/loading-downloading-image-from-url-on-swift
 func getDataFromUrl(url: URL, completion: @escaping (_ data: Data?, _  response: URLResponse?, _ error: Error?) -> Void) {
     URLSession.shared.dataTask(with: url) {
         (data, response, error) in
         completion(data, response, error)
         }.resume()
 }
-
+// source: http://stackoverflow.com/questions/24231680/loading-downloading-image-from-url-on-swift
 func downloadImage(url: URL) {
     print("Download Started")
     getDataFromUrl(url: url) { (data, response, error)  in
