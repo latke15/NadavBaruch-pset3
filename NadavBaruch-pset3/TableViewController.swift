@@ -64,10 +64,6 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 }
             }
         }
-        
-//        let newUrlInput = movieTitles?[indexPath.row] as String?
-//        let url = URL(string: "https://www.omdbapi.com/?t=" + newUrlInput! + "&y=&plot=short&r=json")
-//        print(moviePosters![indexPath.row])
         if let checkedUrl = URL(string: (moviePosters![indexPath.row])) {
             cell.moviePoster.contentMode = .scaleAspectFit
             downloadImage(url: checkedUrl)
@@ -78,9 +74,9 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     {
         if editingStyle == .delete
         {
-//            UserDefaults.standard.removeObject(forKey: "titles")
-//            UserDefaults.standard.removeObject(forKey: "ratings")
-//            UserDefaults.standard.removeObject(forKey: "posters")
+            UserDefaults.standard.removeObject(forKey: "titles")
+            UserDefaults.standard.removeObject(forKey: "ratings")
+            UserDefaults.standard.removeObject(forKey: "posters")
             movieTitles!.remove(at: indexPath.row)
             movieRatings!.remove(at: indexPath.row)
             moviePosters!.remove(at: indexPath.row)
