@@ -82,6 +82,8 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
 //            UserDefaults.standard.removeObject(forKey: "ratings")
 //            UserDefaults.standard.removeObject(forKey: "posters")
             movieTitles!.remove(at: indexPath.row)
+            movieRatings!.remove(at: indexPath.row)
+            moviePosters!.remove(at: indexPath.row)
             self.movieTable.reloadData()
         }
     }
