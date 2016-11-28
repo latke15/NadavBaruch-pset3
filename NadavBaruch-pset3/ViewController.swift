@@ -16,6 +16,8 @@ class ViewController: UIViewController {
     
     let myJson = String()
     var newUrlInput = String()
+    
+    let defaults = UserDefaults.standard
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,6 +68,7 @@ class ViewController: UIViewController {
             
             let dict = try! JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
             
+            // kan het zijn dat het hier misgaat? Dat deze steeds opnieuw geinitialiseerd wordt?
             let movie = parse(dict: dict!) as? movies
             
             DispatchQueue.main.async {

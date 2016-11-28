@@ -19,7 +19,7 @@ class SecondViewController: UIViewController {
     @IBOutlet weak var addMovie: UIButton!
     
     var result:movies!
-    var titles = [String]()
+    var titles: [String] = []
     var poster: [String] = []
 
     override func viewDidLoad() {
@@ -41,9 +41,20 @@ class SecondViewController: UIViewController {
     }
     @IBAction func addMovie(_ sender: Any) {
         let defaults = UserDefaults.standard
-        self.titles.insert(movieTitle.text!, at: 0)
-        defaults.set(self.titles, forKey: "titles")
+        var tempTitles = defaults.array(forKey: "titles") as! Array<String>
+        var tempRatings = defaults.array(forKey: "ratings") as! Array<String>
+        var tempPosters = defaults.array(forKey: "posters") as! Array<String>
+        tempTitles.append(movieTitle.text!)
+        tempRatings.append(imdbRating.text!)
+        tempPosters.append(result.poster)
+        print(tempTitles)
+        print(tempRatings)
+        print(tempPosters)
+        defaults.set(tempTitles, forKey: "titles")
+        defaults.set(tempRatings, forKey: "ratings")
+        defaults.set(tempPosters, forKey: "posters")
     }
+  
 // source: http://stackoverflow.com/questions/24231680/loading-downloading-image-from-url-on-swift
 func getDataFromUrl(url: URL, completion: @escaping (_ data: Data?, _  response: URLResponse?, _ error: Error?) -> Void) {
     URLSession.shared.dataTask(with: url) {

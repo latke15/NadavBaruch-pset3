@@ -16,6 +16,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        if UserDefaults.standard.array(forKey: "titles") as? [String] == nil ||
+           UserDefaults.standard.array(forKey: "ratings") as? [String] == nil ||
+            UserDefaults.standard.array(forKey: "posters") as? [String] == nil{
+                UserDefaults.standard.set(Array<String>(), forKey: "titles")
+                UserDefaults.standard.set(Array<String>(), forKey: "ratings")
+                UserDefaults.standard.set(Array<String>(), forKey: "posters")
+
+        }
+        
         return true
     }
 
