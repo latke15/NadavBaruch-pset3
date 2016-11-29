@@ -74,13 +74,15 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     {
         if editingStyle == .delete
         {
-            UserDefaults.standard.removeObject(forKey: "titles")
-            UserDefaults.standard.removeObject(forKey: "ratings")
-            UserDefaults.standard.removeObject(forKey: "posters")
+            let defaults = UserDefaults.standard
             movieTitles!.remove(at: indexPath.row)
             movieRatings!.remove(at: indexPath.row)
             moviePosters!.remove(at: indexPath.row)
+            defaults.set(movieTitles!, forKey: "titles")
+            defaults.set(movieRatings!, forKey: "ratings")
+            defaults.set(moviePosters!, forKey: "posters")
+            
+            UserDefaults.standard.synchronize()
             self.movieTable.reloadData()
-        }
-    }
+        }}
     }
